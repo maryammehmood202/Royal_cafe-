@@ -1,0 +1,400 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   💎 ROYAL COFFEE PREMIUM DESIGN SYSTEM
+   GLASSMORPHISM 2.0 UPDATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+/* 🎨 ROOT VARIABLES */
+
+
+
+:root {
+    --clr-espresso: #2b1b18;
+    --clr-gold: #c8a96a;
+    --clr-gold-glow: rgba(200, 169, 106, 0.4);
+    --clr-cream: #f8f5f2;
+
+    --bg-body: var(--clr-cream);
+    --bg-main: #f8f5f2;
+
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-blur: blur(16px) saturate(180%);
+    --glass-shadow: 0 8px 32px 0 rgba(43, 27, 24, 0.1);
+
+    --bg-card: rgba(255, 255, 255, 0.45);
+    --text-main: var(--clr-espresso);
+    --text-muted: #6c757d;
+
+    --nav-bg: rgba(43, 27, 24, 0.75);
+
+    --radius-premium: 24px;
+    --radius-lg: 24px;
+    --radius-md: 12px;
+
+    --transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 🏷️ TITLE BAR (FIXED OUTSIDE ROOT) */
+.title-bar {
+    background: linear-gradient(90deg, rgba(200, 169, 106, 0.2), transparent);
+    backdrop-filter: blur(5px);
+    border-left: 5px solid var(--clr-gold);
+    padding: 15px 25px;
+    border-radius: 0 var(--radius-premium) var(--radius-premium) 0;
+    margin-bottom: 40px;
+}
+
+/* 🌙 DARK MODE */
+body.dark-mode {
+    --bg-main: #0f0a09;
+    --glass-bg: rgba(30, 20, 18, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --shadow-glass: 0 12px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* 🌍 GLOBAL */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-main);
+    background-image: radial-gradient(at 0% 0%, rgba(200, 169, 106, 0.1), transparent 50%), 
+                      radial-gradient(at 100% 100%, rgba(107, 62, 46, 0.1), transparent 50%);
+    background-attachment: fixed;
+    color: var(--clr-espresso);
+    transition: background 0.5s ease;
+}
+
+h1 { letter-spacing: -2px; line-height: 1.1; }
+
+h2, h3, h4, .navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.8;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+/* 💎 GLASS ENGINE */
+.glass-card, .dropdown-menu, .modal-content, .form-control {
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--glass-blur) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+    border-radius: var(--radius-premium) !important;
+}
+
+/* 🔘 BUTTONS */
+.btn-royal {
+    background: linear-gradient(135deg, rgba(107, 62, 46, 0.8), rgba(200, 169, 106, 0.8));
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white !important;
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-royal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px var(--clr-gold-glow);
+}
+
+.btn-outline-gold {
+    border: 1px solid var(--clr-gold);
+    color: var(--clr-gold) !important;
+    border-radius: 50px;
+}
+
+.btn-outline-gold:hover {
+    background: var(--clr-gold);
+    color: var(--clr-espresso) !important;
+}
+
+/* 🧭 NAVBAR */
+.navbar {
+    padding: 15px 0;
+    background: var(--nav-bg) !important;
+    backdrop-filter: blur(18px) saturate(120%);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    padding: 8px 0;
+    background: rgba(18,18,18,0.95) !important;
+}
+
+/* 🔽 DROPDOWN */
+.dropdown-menu {
+    border-radius: var(--radius-md);
+    margin-top: 10px !important;
+    padding: 10px;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block !important;
+    animation: glassFade 0.3s ease-out;
+}
+
+@keyframes glassFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🛒 CART */
+.cart-badge {
+    background: var(--clr-gold);
+    color: var(--clr-espresso);
+    font-size: 0.75rem;
+}
+
+.cart-sidebar {
+    backdrop-filter: blur(25px);
+    height: 100vh;
+    position: fixed;
+    right: 0;
+}
+
+/* ✨ EFFECTS */
+.glass-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* 🎬 ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s var(--transition);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🦴 SKELETON */
+.skeleton {
+    animation: skeleton-shimmer 1.5s infinite linear;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* 🖱️ CURSOR */
+#cursor-follower {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--clr-gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+body:hover #cursor-follower { opacity: 1; }
+
+/* 🖼️ HERO */
+.hero-section {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 160px 100px 0;
+    color: white;
+
+    /* ✅ CLEAN BACKGROUND */
+    background-image: url('../images/coffee-hero.png'); /* 👈 correct name */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* 💎 OVERLAY */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right, 
+        rgba(43, 27, 24, 0.85),
+        rgba(43, 27, 24, 0.4)
+    );
+    z-index: 1;
+}
+
+/* TEXT ABOVE */
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* CONTACT US */ 
+:root {
+    --primary-gold: #D4AF37;
+    --primary-gold-hover: #B8860B;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 🌟 HERO & BACKGROUND */
+.contact-hero {
+    background: radial-gradient(circle at top right, #2b1b18, #1a1a1a);
+    color: #ffffff;
+    padding: 100px 0;
+    min-height: 80vh;
+}
+
+/* 🧊 REFINED GLASSMORPHISM */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition-standard);
+    height: 100%;
+}
+
+.glass-card:hover {
+    border-color: var(--primary-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ✨ FORM CONTROLS */
+.form-floating > .form-control {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    border-radius: 12px;
+}
+
+.form-floating > .form-control:focus {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 0.25 remote rgba(212, 175, 55, 0.25);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.form-floating > label {
+    color: var(--text-muted);
+}
+
+/* 🟡 LUXURY BUTTON */
+.btn-gold {
+    background: var(--primary-gold);
+    color: #000;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    padding: 14px;
+    transition: var(--transition-standard);
+    border: none;
+}
+
+.btn-gold:hover {
+    background: var(--primary-gold-hover);
+    transform: translateY(-2px);
+}
+
+/* 🧭 TYPOGRAPHY */
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    background: linear-gradient(to bottom, #ffffff, #a1a1a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* 1. Main Dropdown Container */
+.navbar .dropdown-menu {
+    background: rgba(20, 12, 10, 0.75) !important;
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    
+    border: 1px solid rgba(212, 175, 55, 0.25) !important;
+    border-radius: 16px;
+    
+    padding: 12px 0;
+    margin-top: 14px !important;
+    
+    box-shadow: 
+        0 20px 50px rgba(0,0,0,0.6),
+        inset 0 0 15px rgba(212, 175, 55, 0.05);
+    
+    overflow: hidden;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.35s ease;
+}
+
+/* show animation */
+.navbar .dropdown-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ITEMS */
+.navbar .dropdown-menu .dropdown-item {
+    color: #d4af37 !important;
+    font-weight: 500;
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* hover effect (luxury slide + glow) */
+.navbar .dropdown-menu .dropdown-item:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(212, 175, 55, 0.12),
+        rgba(212, 175, 55, 0.02)
+    ) !important;
+
+    color: #ffffff !important;
+    padding-left: 30px;
+    
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* left gold line animation */
+.navbar .dropdown-menu .dropdown-item::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: #d4af37;
+    transition: 0.3s ease;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover::before {
+    width: 12px;
+}
+
+/* divider glow */
+.navbar .dropdown-menu .dropdown-divider {
+    border-color: rgba(212, 175, 55, 0.15);
+}
